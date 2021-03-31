@@ -1,14 +1,17 @@
 #' @title Create an image out of two pre-processed (numeric) time-series
 #' 
 #' @description
-#' \code{image.gen} creates an image for 
+#' \code{image.gen} creates an image for chart-based Deep Learning
 #'
 #' @param series1 numeric vector of values of time-series 1
 #' @param series2 numeric vector of values of time-series 2 
 #' @param path path where to save the image to
 #' @param filename file name of the image
+#' @param width the width of the image in pixels
+#' @param height the height of the image in pixels
+#' @param colors a vector of colors to be used in sequence (currently 2)
 #' 
-#' @return currently TRUE
+#' @return currently TRUE in every case
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'

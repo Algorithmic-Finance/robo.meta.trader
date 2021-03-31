@@ -23,12 +23,18 @@
 \item{path}{path where to save the image to}
 
 \item{filename}{file name of the image}
+
+\item{width}{the width of the image in pixels}
+
+\item{height}{the height of the image in pixels}
+
+\item{colors}{a vector of colors to be used in sequence (currently 2)}
 }
 \value{
-currently TRUE
+currently TRUE in every case
 }
 \description{
-\code{image.gen} creates an image for
+\code{image.gen} creates an image for chart-based Deep Learning
 }
 \author{
 Ronald Hochreiter, \email{ronald@algorithmic.finance}
