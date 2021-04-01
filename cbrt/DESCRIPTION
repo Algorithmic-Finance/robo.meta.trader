@@ -1,15 +1,15 @@
 Package: cbrt
 Type: Package
-Title: Chart-based Robo Trading using Artificial Intelligence
+Title: Chart-based Robo Trading - Image and Label Generator
 Version: 0.0-1
-Date: 2021-03-31
+Date: 2021-04-01
 Authors@R: c(
   person("Ronald", "Hochreiter", email = "ronald@algorithmic.finance", 
          role = c("aut", "cre")))
 Maintainer: Ronald Hochreiter <ronald@algorithmic.finance>
-Description: Chart-based Robo Trading using Artificial Intelligence
+Description: Chart-based Robo Trading - Image and Label Generator
 Encoding: UTF-8
 Depends: R (>= 4.0), xts
-License: Commercial
+License: MIT + file LICENSE
 URL: https://algorithmic.finance/
 RoxygenNote: 7.1.1
