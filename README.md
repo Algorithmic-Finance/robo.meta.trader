@@ -1,5 +1,8 @@
-# Open-source Robo Meta Trader
+# Robo Meta Trader
 
-Current sub-projects:
+An open-source project by [Algorithmic Finance](https://algorithmic.finance/)
+
+## Projects
 
 - `cbrt` Chart-based Robo Trading using Artificial Intelligence
+- `dltb` Deep Learning Tradebot
