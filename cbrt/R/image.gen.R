@@ -17,7 +17,7 @@
 #'
 #' @export
 image.gen <- function(series1, series2, 
-                      path = getwd(), filename = "img", 
+                      path = tempdir(), filename = "img", 
                       width = 200, height = 200,
                       colors = c("red", "blue"), ...) {
   

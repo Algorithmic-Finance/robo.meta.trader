@@ -12,6 +12,8 @@ ticker.list <- names(time.series)
 
 pair.ticker <- c("AAPL", "MSFT")
 block.size <- 20
+path <- tempdir()
+if(!dir.exists(paste0(path, "/img"))) { dir.create(paste0(path, "/img")) }
 
 ### Image and Label Generation
 
@@ -24,8 +26,9 @@ labels <- rep(NA, nrow(djia30) - block.size - 1)
 for(current.start in c(1:label.vector.size)) {
   current.block <- current.start:(current.start+block.size)
   image.gen(pair.returns[[1]][current.block], pair.returns[[2]][current.block],
+            path = paste0(path, "/img"),
             file = paste0(tolower(paste0(pair.ticker, collapse = "-")), current.start) )
   labels[current.start] <- ifelse((pair.returns[[1]][current.start + block.size + 1] / pair.returns[[1]][current.start + block.size]) > 1, 1, 0)
 }
 
-save(labels, file = paste0(tolower(paste0(pair.ticker, collapse = "-")), "-labels.rda"))
+save(labels, file = paste0(path, "/", tolower(paste0(pair.ticker, collapse = "-")), "-labels.rda"))
