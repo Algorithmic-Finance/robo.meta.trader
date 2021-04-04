@@ -6,7 +6,7 @@
 \alias{cbrt-package}
 \title{Chart-based Robo Trading using Artificial Intelligence}
 \description{
-Chart-based Robo Trading using Artificial Intelligence
+Chart-based Robo Trading - Image and Label Generator
 }
 \references{
 \url{https://algorithmic.finance/}

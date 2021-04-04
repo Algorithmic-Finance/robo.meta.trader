@@ -1,7 +1,7 @@
 #' @title Create an image out of two pre-processed (numeric) time-series
 #' 
 #' @description
-#' \code{image.gen} creates an image for chart-based Deep Learning
+#' \code{image_gen} creates an image for chart-based Deep Learning
 #'
 #' @param series1 numeric vector of values of time-series 1
 #' @param series2 numeric vector of values of time-series 2 
@@ -16,7 +16,7 @@
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 #'
 #' @export
-image.gen <- function(series1, series2, 
+image_gen <- function(series1, series2, 
                       path = tempdir(), filename = "img", 
                       width = 200, height = 200,
                       colors = c("red", "blue"), ...) {
