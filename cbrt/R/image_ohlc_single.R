@@ -31,6 +31,15 @@ image_ohlc_single <- function(ohlc, type = "line",
          ylab = "", xlab = "", xaxt = "n", yaxt = "n", bty = "n")
   }
 
+  # line-macross
+  if(type == "line-macross") {
+    plot(as.numeric(ohlc$c), lwd = 2, type = "l", col = colors[1], 
+         ylab = "", xlab = "", xaxt = "n", yaxt = "n", bty = "n",
+         ylim = c(min(ohlc$c, ohlc$ma.fast, ohlc$ma.slow), max(ohlc$c, ohlc$ma.fast, ohlc$ma.slow)))
+    lines(as.numeric(ohlc$ma.fast), lwd = 1, col = colors[2])
+    lines(as.numeric(ohlc$ma.slow), lwd = 1, type="l", col = colors[3])
+  }
+  
   # dotline
   if(type == "dotline") {
     plot(as.numeric(ohlc$c), pch = 16, col = colors[3], 

@@ -1,7 +1,6 @@
 ### Library
 
 library(cbrt) # https://github.com/Algorithmic-Finance/robo.meta.trader/tree/main/cbrt
-library(quantmod)
 
 # Data
 
@@ -9,14 +8,22 @@ getSymbols("AAPL")
 aapl.ohlc <- AAPL[,1:4]
 names(aapl.ohlc) <- c("o", "h", "l", "c")
 
+# Technical Indicators
+
+aapl.ohlc <- cbind(aapl.ohlc, 
+                   SMA(aapl.ohlc$c, n = 20),
+                   SMA(aapl.ohlc$c, n = 50))
+
+names(aapl.ohlc)[(ncol(aapl.ohlc)-1):ncol(aapl.ohlc)] <- c("ma.fast", "ma.slow")
+
 # Parameter
 
 data.ohlc <- aapl.ohlc["2020"]
 img.prefix <- "aapl"
 block.size <- 20
 path <- tempdir()
-img.type <- "line" # dotline, candle
-label.type <- "binary" # eps.gap
+img.type <- "line" # line-macross, dotline, candle
+label.type <- "binary" # ternary.epsgap
 
 # Image and Label Generation
 
