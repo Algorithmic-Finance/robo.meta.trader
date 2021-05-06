@@ -2,7 +2,7 @@
 #' 
 #' @references \url{https://algorithmic.finance/}
 #' 
-#' @import xts
+#' @import quantmod
 #' 
 #' @author Ronald Hochreiter, \email{ronald@@algorithmic.finance}
 "_PACKAGE"
