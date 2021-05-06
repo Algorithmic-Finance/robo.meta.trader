@@ -21,39 +21,31 @@ image_ohlc_single <- function(ohlc, type = "line",
                               colors = c("black", "red", "green", "lightgrey")) {
 
   ret.neg <- which(dailyReturn(ohlc$c) < 0)
+
+  png(paste0(path, "/", filename, ".png"), width = width, height = height, units = "px")
+  op <- par(mar = rep(0, 4))
   
   # line
-  current.data <- ohlc$c
-  
-  png(paste0(path, "/", filename, ".png"), width = width, height = height, units = "px")
-  op <- par(mar = rep(0, 4))
-  plot(as.numeric(ohlc$c), lwd = 2, type = "l", col = colors[1], 
-       ylab = "", xlab = "", xaxt = "n", yaxt = "n", bty = "n")
-  par(op)
-  dev.off()
-  
+  if(type == "line") {
+    plot(as.numeric(ohlc$c), lwd = 2, type = "l", col = colors[1], 
+         ylab = "", xlab = "", xaxt = "n", yaxt = "n", bty = "n")
+  }
+
   # dotline
-  png(paste0(path, "/", filename, ".png"), width = width, height = height, units = "px")
-  op <- par(mar = rep(0, 4))
+  if(type == "dotline") {
+    plot(as.numeric(ohlc$c), pch = 16, col = colors[3], 
+         ylab = "", xlab = "", xaxt = "n", yaxt = "n", bty = "n")
+    lines(as.numeric(ohlc$c), type="l", col = colors[4])
+    points(ret.neg, ohlc$c[ret.neg], pch = 16, col = colors[2])
+    points(1, ohlc$c[1], pch = 16, col = colors[1])
+  }
   
-  plot(as.numeric(ohlc$c), pch = 16, col = colors[3], 
-       ylab = "", xlab = "", xaxt = "n", yaxt = "n", bty = "n")
-  lines(as.numeric(ohlc$c), type="l", col = colors[4])
-  
-  points(ret.neg, ohlc$c[ret.neg], pch = 16, col = colors[2])
-  
-  points(1, ohlc$c[1], pch = 16, col = colors[1])
-
-  par(op)
-  dev.off()
-    
   # candle
-  png(paste0(path, "/", filename, ".png"), width = width, height = height, units = "px")
-  op <- par(mar = rep(0, 4))
+  if(type == "candle") {
+    # ...
+    
+  }  
 
-  # ...
-  
   par(op)
   dev.off()
-  
 }
