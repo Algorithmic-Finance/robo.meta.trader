@@ -17,6 +17,8 @@ image_ohlc_single(
 \arguments{
 \item{ohlc}{ohlc xts of time series}
 
+\item{type}{plot type: line, line-macross, dotline, candle, candle-line}
+
 \item{path}{path where to save the image to}
 
 \item{filename}{file name of the image}

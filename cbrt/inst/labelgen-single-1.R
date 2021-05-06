@@ -22,7 +22,7 @@ data.ohlc <- aapl.ohlc["2020"]
 img.prefix <- "aapl"
 block.size <- 20
 path <- tempdir()
-img.type <- "line" # line-macross, dotline, candle
+img.type <- "line" # line-macross, dotline, candle, candle-line
 label.type <- "binary" # ternary.epsgap
 
 # Image and Label Generation

@@ -4,6 +4,7 @@
 #' \code{image_ohlc_single} creates an image for chart-based Deep Learning
 #'
 #' @param ohlc ohlc xts of time series
+#' @param type plot type: line, line-macross, dotline, candle, candle-line
 #' @param path path where to save the image to
 #' @param filename file name of the image
 #' @param width the width of the image in pixels
@@ -20,6 +21,7 @@ image_ohlc_single <- function(ohlc, type = "line",
                               width = 200, height = 200,
                               colors = c("black", "red", "green", "lightgrey")) {
 
+  ret.pos <- which(dailyReturn(ohlc$c) > 0)
   ret.neg <- which(dailyReturn(ohlc$c) < 0)
 
   png(paste0(path, "/", filename, ".png"), width = width, height = height, units = "px")
@@ -50,9 +52,19 @@ image_ohlc_single <- function(ohlc, type = "line",
   }
   
   # candle
-  if(type == "candle") {
-    # ...
+  if(type == "candle" | type == "candle-line") {
+    plot(as.numeric(ohlc$c), pch = 16, col = colors[4], 
+         ylab = "", xlab = "", xaxt = "n", yaxt = "n", bty = "n")
     
+    for(i in 1:nrow(ohlc)) { rect(i, ohlc$l[i], i, ohlc$h[i]) }
+    for(i in ret.pos) { rect(i, ohlc$l[i], i, ohlc$h[i], col = colors[2], border = colors[2]) }
+    for(i in ret.neg) { rect(i, ohlc$l[i], i, ohlc$h[i], col = colors[3], border = colors[3]) }
+
+    points(as.numeric(ohlc$c), pch = 16, col = colors[4])
+    
+    if(type == "candle-line") {
+      lines(as.numeric(ohlc$c), lwd = 1, type="l", col = colors[4])
+    }
   }  
 
   par(op)
