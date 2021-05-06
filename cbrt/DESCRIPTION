@@ -1,7 +1,7 @@
 Package: cbrt
 Type: Package
 Title: Chart-based Robo Trading - Image and Label Generator
-Version: 0.0-2
+Version: 0.0-3
 Date: 2021-05-06
 Authors@R: c(
   person("Ronald", "Hochreiter", email = "ronald@algorithmic.finance", 
