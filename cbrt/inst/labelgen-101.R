@@ -34,3 +34,5 @@ for(current.start in c(1:label.vector.size)) {
 }
 
 save(labels, file = paste0(path, "/", tolower(paste0(pair.ticker, collapse = "-")), "-labels.rda"))
+write.table(labels, file = paste0(path, "/", tolower(paste0(pair.ticker, collapse = "-")), "-labels.csv"), 
+            col.names = FALSE, row.names = FALSE)
